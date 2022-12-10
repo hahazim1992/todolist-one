@@ -1,0 +1,18 @@
+<p-button label="to home" routerLink="/" ></p-button>
+<br>
+<form [formGroup]="formCustomer" (ngSubmit)="onSubmit(formCustomer.value)">
+    <h5>name</h5>
+    <input type="text" pInputText formControlName="name" />
+
+    <h5>gender</h5>
+    <input type="text" pInputText formControlName="gender" />
+
+    <h5>dob</h5>
+    <input type="text" pInputText formControlName="dob" />
+
+    <br>
+    <p-button type="submit" [label]="buttonLabel" [disabled]="!formCustomer.valid" ></p-button>
+
+    <br>
+    <p>Form Status: {{ formCustomer.status }}</p>
+</form>

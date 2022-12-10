@@ -1,0 +1,84 @@
+<!-- <div *ngFor="let cust of customer">
+    {{cust | json}}
+    <button (click)="deleteCustomer(cust.id)">delete</button>
+    <button [routerLink]="['edit', cust.id]">to update page</button>
+</div>
+<br><br><br> -->
+
+<div>
+    
+</div>
+
+<p-table #dt [value]="customer" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true"
+    [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" responsiveLayout="scroll"
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['name','country.name','representative.name','status']">
+    <ng-template pTemplate="caption">
+        <div class="flex justify-content-between flex-wrap">
+            <div class="table-header">
+                List of Customers
+            </div>
+            <div>
+                <p-button (click)="addCustomer(mockJson)" type="button" label="Add Quick Customer"></p-button>
+            </div>
+            <div>
+                <p-button (click)="toAddPage()" type="button" label="To Add Page"></p-button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">
+                <div class="flex justify-content-between align-items-center">
+                    Name
+                    <p-sortIcon field="name"></p-sortIcon>
+                    <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="name">
+                <div class="flex justify-content-between align-items-center">
+                    gender
+                    <p-sortIcon field="name"></p-sortIcon>
+                    <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="name">
+                <div class="flex justify-content-between align-items-center">
+                    dob
+                    <p-sortIcon field="name"></p-sortIcon>
+                    <p-columnFilter type="text" field="name" display="menu" class="ml-auto"></p-columnFilter>
+                </div>
+            </th>
+            <th style="width: 8rem"></th>
+            <th style="width: 8rem"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cust>
+        <tr class="p-selectable-row">
+            <td>
+                <span class="p-column-title">Name</span>
+                {{cust.name}}
+            </td>
+            <td>
+                <span class="p-column-title">Gender</span>
+                {{cust.gender}}
+            </td>
+            <td>
+                <span class="p-column-title">Dob</span>
+                {{cust.dob}}
+            </td>
+            <td style="text-align: center">
+                <!-- <button pButton type="button" class="p-button-secondary" (click)="deleteCustomer(cust.id)">Delete</button> -->
+                <p-button class="p-button-secondary" type="button" label="Delete" (click)="deleteCustomer(cust.id)" ></p-button>
+            </td>
+            <td style="text-align: center">
+                <button pButton type="button" class="p-button-secondary" [routerLink]="['edit', cust.id]">Edit</button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8">No customers found.</td>
+        </tr>
+    </ng-template>
+</p-table>
+

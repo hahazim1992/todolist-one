@@ -1,0 +1,22 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "hazim",
+      "gender": "male",
+      "dob": "17/07/1992"
+    },
+    {
+      "id": 2,
+      "name": "dina",
+      "gender": "female",
+      "dob": "10/09/1998"
+    },
+    {
+      "name": "Chewie",
+      "gender": "male",
+      "dob": "06/06/2022",
+      "id": 4
+    }
+  ]
+}
